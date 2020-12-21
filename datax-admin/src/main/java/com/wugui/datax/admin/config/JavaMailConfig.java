@@ -28,7 +28,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
  *
  * @author Hefei Li
  *
- *         created Dec 18, 2020
+ * created Dec 18, 2020
  */
 @Configuration
 public class JavaMailConfig {
@@ -50,9 +50,6 @@ public class JavaMailConfig {
 
   @Value("${spring.mail.properties.mail.smtp.starttls.enable}")
   private String mailServerStartTls;
-
-  @Value("${spring.mail.templates.path}")
-  private String mailTemplatesPath;
   
   @Bean
   public JavaMailSender getJavaMailSender() {
