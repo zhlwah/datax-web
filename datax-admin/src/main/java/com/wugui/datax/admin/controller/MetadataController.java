@@ -1,7 +1,10 @@
 package com.wugui.datax.admin.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
+import com.wugui.datax.admin.entity.SyncTableInfo;
 import com.wugui.datax.admin.service.DatasourceQueryService;
+import com.wugui.datax.admin.service.OptimizeService;
+import com.wugui.datax.admin.service.impl.OptimizeServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,9 @@ public class MetadataController extends BaseController {
 
     @Autowired
     private DatasourceQueryService datasourceQueryService;
+
+    @Autowired
+    private OptimizeService optimizeService;
 
     /**
      * 根据数据源id获取mongo库名
@@ -100,5 +106,17 @@ public class MetadataController extends BaseController {
     @ApiOperation("根据数据源id和sql语句获取所有字段")
     public R<List<String>> getColumnsByQuerySql(Long datasourceId, String querySql) throws SQLException {
         return success(datasourceQueryService.getColumnsByQuerySql(datasourceId, querySql));
+    }
+
+    /**
+     * 自动建表
+     *
+     * @param syncTableInfo
+     * @return
+     */
+    @PostMapping("/createTable")
+    @ApiOperation("自动创建表")
+    public R<String> createTable(@RequestBody SyncTableInfo syncTableInfo) {
+        return success(optimizeService.createTable(syncTableInfo));
     }
 }
