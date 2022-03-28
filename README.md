@@ -2,6 +2,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/WeiYe-Jing/datax-web)
 ![GitHub](https://img.shields.io/github/license/WeiYe-Jing/datax-web)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/WeiYe-Jing/datax-web)
+
 ![](https://img.shields.io/badge/qq%E7%BE%A4-776939467-green.svg)
 
 # DataX-Web
